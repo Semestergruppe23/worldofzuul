@@ -113,6 +113,18 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
+        else if (commandWord == CommandWord.USE) {
+             System.out.println("Placeholder for use command.");
+        }
+        else if (commandWord == CommandWord.INTERACT) {
+             System.out.println("Placeholder for interact command.");
+        }
+        else if (commandWord == CommandWord.DROP) {
+             System.out.println("Placeholder for drop command.");
+        }
+        else if (commandWord == CommandWord.INSPECT) {
+            System.out.println("Placeholder for inspect command.");
+        }
         return wantToQuit;
     }
 
