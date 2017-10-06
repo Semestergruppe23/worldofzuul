@@ -20,28 +20,53 @@ public class Game
 //doooo222
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room startRoom, MathRoom, HistoryRoom, HallWay_red, HallWay_blue, JanitorRoom, HallWay_green, HallWay_black, toilet, exit; //Declares the rooms of the game, SLET HUT
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office"); //TEST 
+        startRoom = new Room("Where the player starts: "); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
+        MathRoom = new Room("in the Math room");
+        HistoryRoom = new Room("in the history room");
+        HallWay_red = new Room("in the red hallway");
+        HallWay_blue = new Room("in the blue hallway");
+        JanitorRoom = new Room("in the janitor room"); // SLET
+        HallWay_green = new Room("in the green hallway");
+		HallWay_black = new Room("in the black hallway");
+		toilet = new Room("in the toilet");
+		exit = new Room("Congrats, you win");
+		
+		// Exits: 
+        startRoom.setExit("east", HallWay_red);  //Uses the "sub-method" setExit in the Room class, to set which ways you can leave the rooms
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+		MathRoom.setExit("south", HallWay_red);
+		
+		HistoryRoom.setExit("south", HallWay_blue);
+		
+		HallWay_red.setExit("north", MathRoom);
+		HallWay_red.setExit("east", HallWay_blue);
+		HallWay_red.setExit("south", HallWay_green);
+		HallWay_red.setExit("west", startRoom);
+		
+		HallWay_blue.setExit("north", HistoryRoom);
+		HallWay_blue.setExit("east", JanitorRoom);
+		HallWay_blue.setExit("west", HallWay_red);
+		HallWay_blue.setExit("south", HallWay_black);
+		
+		JanitorRoom.setExit("west", HallWay_blue);
+		
+		HallWay_green.setExit("north", HallWay_red);
+		HallWay_green.setExit("east", HallWay_black);
+		HallWay_green.setExit("south", exit);
+		
+		HallWay_black.setExit("north", HallWay_blue);
+		HallWay_black.setExit("west", HallWay_green); 
+		HallWay_black.setExit("east", toilet);
+		
+		toilet.setExit("west", HallWay_black);
+		
+        
 
-        theatre.setExit("west", outside);
+        
 
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        currentRoom = startRoom;
     }
 
     public void play() 
