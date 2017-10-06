@@ -4,3 +4,4 @@ build/classes/worldofzuul/Game.class
 nbproject/private/private.properties
 *.class
 src/worldofzuul/Game.java
+*.properties
