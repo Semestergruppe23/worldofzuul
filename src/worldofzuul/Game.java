@@ -22,16 +22,12 @@ public class Game
     {
         Room startRoom, MathRoom, HistoryRoom, HallWay_red, HallWay_blue, JanitorRoom, HallWay_green, HallWay_black, toilet, exit; //Declares the rooms of the game, SLET HUT
       
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office"); //TEST kan du se dette
-=======
-=======
->>>>>>> a46c962f783713ff2b38c68be27c8d6c8c664047
         startRoom = new Room("Where the player starts: "); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
         MathRoom = new Room("in the Math room");
         HistoryRoom = new Room("in the history room");
@@ -72,11 +68,7 @@ public class Game
 		
 		toilet.setExit("west", HallWay_black);
 		
-<<<<<<< HEAD
->>>>>>> a46c962f783713ff2b38c68be27c8d6c8c664047
-=======
->>>>>>> a46c962f783713ff2b38c68be27c8d6c8c664047
-        
+
 
         
 
