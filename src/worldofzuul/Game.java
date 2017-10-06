@@ -26,7 +26,7 @@ public class Game
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        office = new Room("in the computing admin office"); //TEST 
         
         outside.setExit("east", theatre);
         outside.setExit("south", lab);
