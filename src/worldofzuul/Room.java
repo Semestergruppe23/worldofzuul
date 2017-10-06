@@ -3,7 +3,10 @@ package worldofzuul;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
-
+ 
+/*
+Each "Room" represents a location in the game and is connected to other rooms via exits. 
+*/
 
 /**
  * @author  Michael Kolling and David J. Barnes
