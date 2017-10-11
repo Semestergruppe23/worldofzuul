@@ -22,7 +22,7 @@ public class Game {
         HistoryRoom = new Room("in the history room");
         HallWay_red = new Room("in the red hallway");
         HallWay_blue = new Room("in the blue hallway");
-        JanitorRoom = new Room("in the janitor room"); // SLET
+        JanitorRoom = new Room("in the janitor room");
         HallWay_green = new Room("in the green hallway");
         HallWay_black = new Room("in the black hallway");
         toilet = new Room("in the toilet");
