@@ -92,8 +92,8 @@ public class Game {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.USE) {
-            System.out.println("Placeholder for use command.");
+        } else if (commandWord == CommandWord.GRAB) {
+            System.out.println("Placeholder for grab command.");
         } else if (commandWord == CommandWord.INTERACT) {
             System.out.println("Placeholder for interact command.");
         } else if (commandWord == CommandWord.DROP) {
