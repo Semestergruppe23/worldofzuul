@@ -17,7 +17,7 @@ public class Room
     
     // test
     private String description;
-    private HashMap<String, Room> exits;
+    private HashMap<String, Room> exits; //Stores exits of this room
 
     public Room(String description) 
     {
@@ -26,23 +26,34 @@ public class Room
         
         
     }
-
+ /* Defines the exit of the particular room
+    Direction: Direction of the exit
+    Neighbor: The room connected to this one in the given direction
+    */
     
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);
     }
-
+/* Description of the room
+    
+    */
     public String getShortDescription()
     {
         return description;
     }
-
+ /* Describes which room you are in and where the exit is.
+    ex. "You are in a lecture theatre
+        Exits: west"
+    */
     public String getLongDescription()
     {
         return "You are " + description + ".\n" + getExitString();
     }
-
+ /* Returns a string describing the available exits
+        ex. "Exits: west south"
+        
+        */
 	private String getExitString()
     {
         String returnString = "Exits:";
@@ -52,7 +63,10 @@ public class Room
         }
         return returnString;
     }
+/* Returns the room that is reached if we go from this room in direction,
+        "direction". If there is no room, return null. 
 
+        */
     public Room getExit(String direction) 
     {
         return exits.get(direction);
