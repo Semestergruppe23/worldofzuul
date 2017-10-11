@@ -1,5 +1,5 @@
 
-package worldofzuul.items;
+package items;
 // @author niemeijeren
 import worldofzuul.items.*;
 

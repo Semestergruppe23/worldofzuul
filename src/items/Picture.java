@@ -1,5 +1,5 @@
 
-package worldofzuul.items;
+package items;
 // @author niemeijeren
 
 public class Picture {
