@@ -124,8 +124,7 @@ public class Game {
         } else if (commandWord == CommandWord.DROP) {
             System.out.println("Placeholder for drop command.");
         } else if (commandWord == CommandWord.INSPECT) {
-            this.currentRoom.;
-        }
+            System.out.println("Placeholder for inspect command.");        }
         return wantToQuit;
     }
 
