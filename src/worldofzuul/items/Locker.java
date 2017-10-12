@@ -11,8 +11,8 @@ public class Locker {
     public Locker(){
         this.insideLocker = insideLocker;
     }
-    public void setInsideLocker(){
-        this.insideLocker = insideLocker;
+    public void putInsideLocker(Object thing, int volume){
+        this.insideLocker.put(thing, volume);
     }
     public String getInsideLocker(){
         return insideLocker.toString();
