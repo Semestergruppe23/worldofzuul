@@ -34,4 +34,7 @@ public void batteriesAndFlashlight(Batteries batteries, Flashlight flashlight){
 public void setCapacity(int inventoryMAX){
     this.inventoryMAX = inventoryMAX;
 }
+public String getName(){
+    return this.name;
+}
 }
