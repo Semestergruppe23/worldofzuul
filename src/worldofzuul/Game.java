@@ -1,15 +1,18 @@
 package worldofzuul;
-
+import java.util.*;
+import worldofzuul.items.*;
 /**
  * @author Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
 public class Game {
-
     private Parser parser;
     private Room currentRoom;
-
+    Scanner input = new Scanner(System.in);
+    
     public Game() {
+        //Create new player at start of game
+        
         createRooms();
         parser = new Parser();
     }
@@ -17,7 +20,7 @@ public class Game {
     private void createRooms() {
         Room startRoom, MathRoom, HistoryRoom, HallWay_red, HallWay_blue, JanitorRoom, HallWay_green, HallWay_black, toilet, exit; //Declares the rooms of the game
 
-        startRoom = new Room("Where the player starts: "); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
+        startRoom = new Room("Where the game starts: "); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
         MathRoom = new Room("in the Math room");
         HistoryRoom = new Room("in the history room");
         HallWay_red = new Room("in the red hallway");
@@ -57,6 +60,8 @@ public class Game {
     }
 
     public void play() {
+        System.out.println("Name your Character: ");
+        Player newplayer = new Player(input.next());
         printWelcome();
 
         boolean finished = false;
@@ -93,11 +98,7 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
-<<<<<<< HEAD
-            System.out.println("Placeholder for use command.");
-=======
             System.out.println("Placeholder for grab command.");
->>>>>>> 17606a4f67135d796afdf176b31f06cb5a1502ed
         } else if (commandWord == CommandWord.INTERACT) {
             System.out.println("Placeholder for interact command.");
         } else if (commandWord == CommandWord.DROP) {

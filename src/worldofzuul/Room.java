@@ -18,7 +18,7 @@ public class Room
     // test
     private String description;
     private HashMap<String, Room> exits; //Stores exits of this room
-    private Map < String, Integer > insideRoom = new HashMap<>();
+    private Map < Object, Integer > insideRoom = new HashMap<>();
 
     public Room(String description) 
     {

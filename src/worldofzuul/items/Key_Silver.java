@@ -1,5 +1,5 @@
 
-package items;
+package worldofzuul.items;
 // @author niemeijeren
  
 public class Key_Silver {

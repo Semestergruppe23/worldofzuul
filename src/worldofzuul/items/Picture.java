@@ -1,20 +1,24 @@
 
-package items;
+package worldofzuul.items;
 // @author niemeijeren
- 
-public class Flashlight {
+
+public class Picture {
     
     private static int volume = 10;
     private String canPickUp = "You can pick this up";
-    private boolean hasBatteries = false;
-            
-    public Flashlight() {
-        this.canPickUp = canPickUp;
-        this.hasBatteries = hasBatteries;
+    private String phonenumber = "3847 2635";
+    
+    public Picture(){
         this.volume = volume;
+        this.canPickUp = canPickUp;
+        this.phonenumber = phonenumber;
     }
+    
     public int getVolume() {
         return this.volume;
+    }
+    public String getPhonenumber() {
+        return this.phonenumber;
     }
     public String canPickUp() {
         return this.canPickUp;

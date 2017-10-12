@@ -1,12 +1,12 @@
 
-package items;
+package worldofzuul.items;
 import java.util.*;
 // @author niemeijeren
 
          
 public class Locker {
     
-    private Map < String ,Integer > insideLocker = new HashMap<>();
+    private Map < Object ,Integer > insideLocker = new HashMap<>();
 
     public Locker(){
         this.insideLocker = insideLocker;

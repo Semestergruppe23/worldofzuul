@@ -1,7 +1,6 @@
 
-package items;
+package worldofzuul.items;
 // @author niemeijeren
-import items.*;
 
 public class Pants {
     
