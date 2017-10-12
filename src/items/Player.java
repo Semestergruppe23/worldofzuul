@@ -1,7 +1,7 @@
 
 package items;
 //@author niemeijeren
-import java.util.ArrayList;
+import java.util.*;
 import worldofzuul.*;
 
          
@@ -11,22 +11,20 @@ public class Player {
     int inventoryMAX = 20;
     int inventoryUsed = 0;
     
-    ArrayList < Object > inventory = new ArrayList<>();
+    Map < String , Object > inventory = new HashMap<>();
     
     public Player (String name) {
         this.name = name;
-        int inventoryUsed = this.inventoryUsed;
-        int inventoryMAX = this.inventoryMAX;
-      
-      
-    }    
-
+        this.inventoryUsed = inventoryUsed;
+        this.inventoryMAX = inventoryMAX;
+        
+        
+    }
+    
 public void inventoryWithPants(Pants pants){
    
-    for (int i = 0; i < inventory.size(); i++){
-        if (inventory.get(i) == pants) {
-            this.inventoryMAX += pants.getVolumeIncrease();
-        }
+    if (inventory.containsKey(pants)) {
+        setCapacity(inventoryMAX + pants.getVolumeIncrease());
     }
 }
 public void setCapacity(int inventoryMAX){

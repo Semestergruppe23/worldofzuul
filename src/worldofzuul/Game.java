@@ -93,7 +93,11 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
+<<<<<<< HEAD
             System.out.println("Placeholder for use command.");
+=======
+            System.out.println("Placeholder for grab command.");
+>>>>>>> 17606a4f67135d796afdf176b31f06cb5a1502ed
         } else if (commandWord == CommandWord.INTERACT) {
             System.out.println("Placeholder for interact command.");
         } else if (commandWord == CommandWord.DROP) {

@@ -16,4 +16,7 @@ public class Flashlight {
     public int getVolume() {
         return this.volume;
     }
+    public String canPickUp() {
+        return this.canPickUp;
+    }
 }

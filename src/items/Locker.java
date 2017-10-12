@@ -1,15 +1,20 @@
 
 package items;
+import java.util.*;
 // @author niemeijeren
 
-import java.util.ArrayList;
          
 public class Locker {
     
-    private ArrayList < Object > insideLocker = new ArrayList<>();
-    private String canPickUp = "You can not pick this up";
-    
-    public String canPickUp() {
-        return this.canPickUp;
+    private Map < String ,Integer > insideLocker = new HashMap<>();
+
+    public Locker(){
+        this.insideLocker = insideLocker;
+    }
+    public void setInsideLocker(){
+        this.insideLocker = insideLocker;
+    }
+    public String getInsideLocker(){
+        return insideLocker.toString();
     }
 }

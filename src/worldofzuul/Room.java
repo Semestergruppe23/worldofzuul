@@ -1,8 +1,8 @@
 package worldofzuul;
 
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Iterator;
+
+import java.util.*;
+
  
 /*
 Each "Room" represents a location in the game and is connected to other rooms via exits. 
@@ -18,6 +18,7 @@ public class Room
     // test
     private String description;
     private HashMap<String, Room> exits; //Stores exits of this room
+    private Map < String, Integer > insideRoom = new HashMap<>();
 
     public Room(String description) 
     {
