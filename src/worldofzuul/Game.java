@@ -11,8 +11,6 @@ public class Game {
     Scanner input = new Scanner(System.in);
     
     public Game() {
-        //Create new player at start of game
-        
         createRooms();
         parser = new Parser();
     }
@@ -57,11 +55,34 @@ public class Game {
         toilet.setExit("west", HallWay_black);
 
         currentRoom = startRoom;
+        
+        //Create objects and put them in rooms:
+        Pants pants = new Pants();
+        Batteries batteries = new Batteries();
+        Flashlight flashlight = new Flashlight();
+        Key_Main mainKey = new Key_Main();
+        Key_Silver silverKey = new Key_Silver();
+        Locker redLocker = new Locker();
+        Locker blueLocker = new Locker();
+        Locker greenLocker = new Locker();
+        Locker blackLocker = new Locker();
+        Person randomPerson = new Person();
+        Picture picture = new Picture();
+        
+        //insert objects in rooms (Object , volume of object)
+        HallWay_black.putInsideRoom(blackLocker, 1000);
+        HallWay_green.putInsideRoom(greenLocker, 1000);
+        HallWay_blue.putInsideRoom(blueLocker, 1000);
+        HallWay_red.putInsideRoom(redLocker, 1000);
+        redLocker.putInsideLocker(picture, 10);
+        
     }
 
     public void play() {
+        //Creating player at start of game:
         System.out.println("Name your Character: ");
         Player newplayer = new Player(input.next());
+        System.out.println("Dear " + newplayer.getName() + "!");
         printWelcome();
 
         boolean finished = false;
@@ -73,7 +94,6 @@ public class Game {
     }
 
     private void printWelcome() {
-        System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
@@ -104,7 +124,7 @@ public class Game {
         } else if (commandWord == CommandWord.DROP) {
             System.out.println("Placeholder for drop command.");
         } else if (commandWord == CommandWord.INSPECT) {
-            System.out.println("Placeholder for inspect command.");
+            this.currentRoom.;
         }
         return wantToQuit;
     }
