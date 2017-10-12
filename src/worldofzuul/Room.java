@@ -24,7 +24,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
-        
+        this.insideRoom = insideRoom;
         
     }
  /* Defines the exit of the particular room
@@ -71,6 +71,9 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    public void putInsideRoom(Object thing,int volume){
+        this.insideRoom.put(thing, volume);
     }
 }
 
