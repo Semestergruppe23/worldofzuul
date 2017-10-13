@@ -28,6 +28,11 @@ public class Item {
     public void insertObject(Item item, Integer volume){
         this.objectContent.put(item, volume);
     }
+    
+    public String toString() {
+        return name;
+    }
+    
 }
 
     

@@ -75,13 +75,13 @@ public class Room
     public void putInsideRoom(Item thing,int volume){
         this.insideRoom.put(thing, volume);
     }
-    public String getInsideRoom(){
+    public void getInsideRoom(){
         System.out.println("You look around, and find: ");
-        for (Item thing: insideRoom){
-            System.out.println(this.insideRoom.get(i));
+        for(Item items : insideRoom.keySet()) {
+            System.out.println(items.toString());
         }
         System.out.println("Thats it!");
-        return "";
+
     }
 }
 
