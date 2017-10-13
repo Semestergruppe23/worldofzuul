@@ -57,24 +57,27 @@ public class Game {
         currentRoom = startRoom;
         
         //Create objects and put them in rooms:
-        Pants pants = new Pants();
-        Batteries batteries = new Batteries();
-        Flashlight flashlight = new Flashlight();
-        Key_Main mainKey = new Key_Main();
-        Key_Silver silverKey = new Key_Silver();
-        Locker redLocker = new Locker();
-        Locker blueLocker = new Locker();
-        Locker greenLocker = new Locker();
-        Locker blackLocker = new Locker();
-        Person randomPerson = new Person();
-        Picture picture = new Picture();
-        
+        Item pants = new Item("pants",0);
+            pants.setInventoryIncrease();
+        Item batteries = new Item("batteries", 10);
+        Item flashlight = new Item("flash light", 10);
+        Item mainKey = new Item("Main Key", 10);
+        Item silverKey = new Item("Silver Key", 10);
+        Item redLocker = new Item("Red Locker", 1000);
+            redLocker.setObjectContent();
+        Item blueLocker = new Item("Blue Locker", 1000);
+            blueLocker.setObjectContent();
+        Item greenLocker = new Item("Green Locker", 1000);
+            greenLocker.setObjectContent();
+        Item blackLocker = new Item("Black Locker", 1000);
+            blackLocker.setObjectContent();
+        Item randomPerson = new Item("Random Person", 0);
+
         //insert objects in rooms (Object , volume of object)
         HallWay_black.putInsideRoom(blackLocker, 1000);
         HallWay_green.putInsideRoom(greenLocker, 1000);
         HallWay_blue.putInsideRoom(blueLocker, 1000);
         HallWay_red.putInsideRoom(redLocker, 1000);
-        redLocker.putInsideLocker(picture, 10);
         
     }
 
@@ -124,7 +127,8 @@ public class Game {
         } else if (commandWord == CommandWord.DROP) {
             System.out.println("Placeholder for drop command.");
         } else if (commandWord == CommandWord.INSPECT) {
-            System.out.println("Placeholder for inspect command.");        }
+            currentRoom.getInsideRoom();       
+        }
         return wantToQuit;
     }
 
