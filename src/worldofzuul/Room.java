@@ -2,7 +2,7 @@ package worldofzuul;
 
 
 import java.util.*;
-
+import worldofzuul.items.*;
  
 /*
 Each "Room" represents a location in the game and is connected to other rooms via exits. 
@@ -18,7 +18,7 @@ public class Room
     // test
     private String description;
     private HashMap<String, Room> exits; //Stores exits of this room
-    private Map < Object, Integer > insideRoom = new HashMap<>();
+    private Map < Item , Integer > insideRoom = new HashMap<>();
 
     public Room(String description) 
     {
@@ -72,8 +72,16 @@ public class Room
     {
         return exits.get(direction);
     }
-    public void putInsideRoom(Object thing,int volume){
+    public void putInsideRoom(Item thing,int volume){
         this.insideRoom.put(thing, volume);
+    }
+    public String getInsideRoom(){
+        System.out.println("You look around, and find: ");
+        for (Item thing: insideRoom){
+            System.out.println(this.insideRoom.get(i));
+        }
+        System.out.println("Thats it!");
+        return "";
     }
 }
 
