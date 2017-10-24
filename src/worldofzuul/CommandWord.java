@@ -4,19 +4,27 @@ package worldofzuul;
  * @author Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
-public enum CommandWord // A class of the type enum. Enum still unknown. 
+public enum CommandWord // A class of the type enum. 
 {
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), GRAB("grab"), INTERACT("interact"), DROP("drop"), INSPECT("inspect") ; // The different commands that can be used in the game. 
 
 
-    private String commandString; // String with the name commandString
+    private String commandString; 
     
-    CommandWord(String commandString) // Constructor.
+    /**
+     * 
+     * @param commandString 
+     */
+    CommandWord(String commandString) 
     {
         this.commandString = commandString;
     }
     
-    public String toString() // Getter method that returns the private String commandString. 
+    /**
+     * 
+     * @return Overriding toString
+     */
+    public String toString() 
     {
         return commandString;
     }
