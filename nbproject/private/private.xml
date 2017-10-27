@@ -3,21 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/Game.java</file>
             <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/items/Item.java</file>
+            <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/main.java</file>
             <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/items/Collectable.java</file>
             <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/items/Person.java</file>
             <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/Room.java</file>
-=======
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/Game.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/CommandWord.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/Room.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/items/Item.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/Command.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/Parser.java</file>
-            <file>file:/Users/Jonas/Desktop/Semesterprojekt%20Github/src/worldofzuul/CommandWords.java</file>
->>>>>>> 202004855c7521b68a72f7c72d1eac8134fd7e2f
+            <file>file:/C:/Users/Oskar/Documents/GitHub/worldofzuul/src/worldofzuul/items/Player.java</file>
         </group>
     </open-files>
 </project-private>

@@ -9,10 +9,17 @@ public class Game {
     private Parser parser;
     private Room currentRoom;
     Scanner input = new Scanner(System.in);
+    Person person = new Person(); 
+    int changeOfRooms = 0; //made so that random questions dont pop up when first beginning the game
+    Scanner scanner = new Scanner(System.in); //So that the answers dont interfer with the commands
+    long startTime = System.currentTimeMillis(); 
     
     public Game() {
         createRooms();
         parser = new Parser();
+        person.putAnswersAndQuestions();
+        person.putQuestionsAndAnswers();
+        
     }
 
     private void createRooms() {
@@ -149,12 +156,44 @@ public class Game {
         String direction = command.getSecondWord();
 
         Room nextRoom = currentRoom.getExit(direction);
-
+        
+        
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
-            currentRoom = nextRoom;
+            currentRoom = nextRoom; //Implement the random person popping up here
+            changeOfRooms++; 
+            int randomPersonPoppingUp = (int)(Math.random() * 3 + 1);
+            
+            
+            //Prints the description of the room you are now in:
             System.out.println(currentRoom.getLongDescription());
+            if(randomPersonPoppingUp == 2){
+            //Written so questions does not come immediatly
+            if(changeOfRooms > 1){
+            //Here comes the questions randomly
+            
+            //Generate the question 
+            String question = person.generateQuestions();
+            System.out.println("Questions: " + question);
+            //Generates the right corresponding answer
+            String answer = person.generateAnswers();
+            
+            //Obtains the player answer through a different scanner input than the one used to change rooms
+            String playerAnswer = scanner.nextLine(); 
+            
+            //Checks if the answer is correct, case insensitive
+            if(answer.toLowerCase().equals(playerAnswer.toLowerCase())){
+                    System.out.println("That's right! well done");
+                    person.pointsFromAnswers(100);
+            }
+            else
+                    System.out.println("No, that's not right");
+            //Prints the room discription again after the answer, so its easier for the user to see
+            System.out.println(currentRoom.getLongDescription());
+            } 
+            }
+            
         }
     }
 
@@ -163,6 +202,8 @@ public class Game {
             System.out.println("Quit what?");
             return false;
         } else {
+            person.pointsFromTime(startTime);
+            person.returnPlayerPoints(); 
             return true;
         }
     }
