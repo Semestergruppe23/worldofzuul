@@ -9,9 +9,12 @@ import java.util.HashMap;
 
 public class CommandWords // Class with the name of CommandWords.
 {
-    private HashMap<String, CommandWord> validCommands; // Hashmap still not learnt. 
+    private HashMap<String, CommandWord> validCommands; 
 
-    public CommandWords() // Constructor. 
+    /**
+     * No arg constructor
+     */
+    public CommandWords() 
     {
         validCommands = new HashMap<String, CommandWord>(); // Hashmap.
         for(CommandWord command : CommandWord.values()) {
@@ -26,7 +29,7 @@ public class CommandWords // Class with the name of CommandWords.
     /**
      *
      * @param commandWord
-     * @return
+     * @return Commandword
      */
     public CommandWord getCommandWord(String commandWord) // Method getCommandWord that requires a String input.
     {
@@ -39,11 +42,19 @@ public class CommandWords // Class with the name of CommandWords.
         }
     }
     
+    /**
+     * 
+     * @param aString
+     * @return Boolean
+     */
     public boolean isCommand(String aString) // Method isCommand that requires a string.
     {
         return validCommands.containsKey(aString);
     }
 
+    /**
+     * Method to show all valid commands
+     */
     public void showAll() // Method showAll.
     {
         for(String command : validCommands.keySet()) {

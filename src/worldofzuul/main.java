@@ -16,4 +16,3 @@ public class main {
     }
     
 }
-// Ædnring for nu

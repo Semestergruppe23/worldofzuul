@@ -12,12 +12,19 @@ public class Parser
     private CommandWords commands;
     private Scanner reader;
 
+    /**
+     * no arg constructor
+     */
     public Parser() 
     {
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
 
+    /**
+     * 
+     * @return Command
+     */
     public Command getCommand() 
     {
         String inputLine;
@@ -39,6 +46,9 @@ public class Parser
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    /**
+     * Show all commands
+     */
     public void showCommands()
     {
         commands.showAll();
