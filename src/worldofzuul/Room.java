@@ -83,7 +83,7 @@ public class Room {
      */
     public void getInsideRoom() {
         System.out.println("You look around, and find: ");
-        for (Item items : insideRoom.keySet()) {
+        for (Item items : insideRoom.keySet()) { 
             System.out.println(items.toString());
         }
         System.out.println("Thats it!");

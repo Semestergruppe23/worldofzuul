@@ -50,6 +50,8 @@ public class Person {
         }
         return "something went wrong";
     }
+  
+    
     public String generateAnswers(){
         switch(questionsAsked){
             case 2: 
@@ -75,6 +77,7 @@ public class Person {
     String question3 = "Who is the first name of Armadeus Mozart?";
     String answer3 = "Wolfgang";
     
+   
     public void pointsFromAnswers(int number){
         //Increases the number of points after each question answered correctly
         this.points += number;

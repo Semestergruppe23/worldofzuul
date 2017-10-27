@@ -6,7 +6,7 @@ package worldofzuul;
  */
 public enum CommandWord // A class of the type enum. 
 {
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), GRAB("grab"), INTERACT("interact"), DROP("drop"), INSPECT("inspect") ; // The different commands that can be used in the game. 
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), GRAB("grab"), USE("use"), DROP("drop"), INSPECT("inspect"), INVENTORY("inventory") ; // The different commands that can be used in the game. 
 
 
     private String commandString; 
