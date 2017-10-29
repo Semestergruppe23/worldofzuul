@@ -111,7 +111,11 @@ public class Game {
         System.out.println(currentRoom.getLongDescription());
     }
 
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 177a4326eeb248cd11a1a9f7ac6f0c25585debaf
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
@@ -130,13 +134,16 @@ public class Game {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
             System.out.println("Placeholder for grab command.");
-        } else if (commandWord == CommandWord.INTERACT) {
+        } else if (commandWord == CommandWord.USE) {
             System.out.println("Placeholder for interact command.");
         } else if (commandWord == CommandWord.DROP) {
             System.out.println("Placeholder for drop command.");
         } else if (commandWord == CommandWord.INSPECT) {
-            currentRoom.getInsideRoom();       
+            currentRoom.getInsideRoom();    
+        } else if (commandWord == CommandWord.INVENTORY) {
+            System.out.println("Placeholder for inventory command.");
         }
+        
         return wantToQuit;
     }
 
