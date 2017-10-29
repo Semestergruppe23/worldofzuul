@@ -172,30 +172,25 @@ public class Game {
             Generate the question, get the players answer, and generate string with the "real answer"
             Check if the answer is correct, and give points to player if so
             */
-            if(questionsAsked < person.getArrayLength()){
-                if((int)(Math.random() * 3 + 1) == 2){
-                    if(changeOfRooms > 1){
-                    
-                        String question = person.generateQuestions();
-                        System.out.println("Questions: " + question + "\n Your answer: ");
-                        String playerAnswer = scanner.nextLine().toLowerCase(); 
-                        String realAnswer = person.answersAndQuestions.get(question).toLowerCase();
-                        questionsAsked++; 
-                        if(playerAnswer.equals(realAnswer)){
-                            System.out.println("That's right! well done");
-                            person.pointsFromAnswers(100);
-                        }
-                        else{
-                            System.out.println("No, that's not right");
-                        }
+           
+                if((int)(Math.random() * 3 + 1) == 2 && changeOfRooms > 1 && questionsAsked < person.getArrayLength()){
+                    String question = person.generateQuestions();
+                    System.out.println("Questions: " + question + "\n Your answer: ");
+                    String playerAnswer = scanner.nextLine().toLowerCase(); 
+                    String realAnswer = person.answersAndQuestions.get(question).toLowerCase();
+                    questionsAsked++; 
+                    if(playerAnswer.equals(realAnswer)){
+                        System.out.println("That's right! well done");
+                        person.pointsFromAnswers(100);
+                    }
+                    else{
+                        System.out.println("No, that's not right");
+                    }
 
             //Prints the room discription again after the answer, so its easier for the user to see
             System.out.println(currentRoom.getLongDescription());
-            
             }
-            }
-        }
-        }
+        }  
     }
 
     private boolean quit(Command command) {

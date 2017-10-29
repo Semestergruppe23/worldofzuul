@@ -44,6 +44,7 @@ public class Person {
             return "something went wrong";
         }
 
+    
     public void pointsFromAnswers(int number){
         //Increases the number of points after each question answered correctly
         this.points += number;
