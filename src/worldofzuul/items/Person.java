@@ -43,41 +43,7 @@ public class Person {
         } else
             return "something went wrong";
         }
-<<<<<<< HEAD
-    
-    
-=======
-        return "something went wrong";
-    }
-  
-    
-    public String generateAnswers(){
-        switch(questionsAsked){
-            case 2: 
-                String firstAnswer = answersAndQuestions.get(question1);
-                return firstAnswer;
-            case 3: 
-                String secondAnswer = answersAndQuestions.get(question2);
-                return secondAnswer;
-            case 4
-                    :
-                String thirdAnswer = answersAndQuestions.get(question3);
-                return thirdAnswer;
-        }
-        return "something went wrong";
-    }
-    
-    
-    //The questions and answers
-    String question1 = "What is the name of the first king of Denmark?"; 
-    String answer1 = "Gorm the old";
-    String question2 = "What is the surname of the current president of the United States?";
-    String answer2 = "Trump";
-    String question3 = "Who is the first name of Armadeus Mozart?";
-    String answer3 = "Wolfgang";
-    
-   
->>>>>>> 177a4326eeb248cd11a1a9f7ac6f0c25585debaf
+
     public void pointsFromAnswers(int number){
         //Increases the number of points after each question answered correctly
         this.points += number;

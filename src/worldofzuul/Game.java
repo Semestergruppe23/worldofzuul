@@ -111,11 +111,6 @@ public class Game {
         System.out.println(currentRoom.getLongDescription());
     }
 
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> 177a4326eeb248cd11a1a9f7ac6f0c25585debaf
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
