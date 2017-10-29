@@ -13,11 +13,11 @@ public class Game {
     int changeOfRooms = 0; //made so that random questions dont pop up when first beginning the game
     Scanner scanner = new Scanner(System.in); //So that the answers dont interfer with the commands
     long startTime = System.currentTimeMillis(); 
+    int questionsAsked = 1;//So that questions are only answered as long as there is more in the array
     
     public Game() {
         createRooms();
         parser = new Parser();
-        person.putAnswersAndQuestions();
         person.putQuestionsAndAnswers();
         
     }
@@ -111,6 +111,7 @@ public class Game {
         System.out.println(currentRoom.getLongDescription());
     }
 
+    
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
@@ -152,48 +153,46 @@ public class Game {
             System.out.println("Go where?");
             return;
         }
-
         String direction = command.getSecondWord();
-
         Room nextRoom = currentRoom.getExit(direction);
-        
-        
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
-            currentRoom = nextRoom; //Implement the random person popping up here
+            currentRoom = nextRoom;
             changeOfRooms++; 
-            int randomPersonPoppingUp = (int)(Math.random() * 3 + 1);
-            
-            
-            //Prints the description of the room you are now in:
             System.out.println(currentRoom.getLongDescription());
-            if(randomPersonPoppingUp == 2){
-            //Written so questions does not come immediatly
-            if(changeOfRooms > 1){
-            //Here comes the questions randomly
             
-            //Generate the question 
-            String question = person.generateQuestions();
-            System.out.println("Questions: " + question);
-            //Generates the right corresponding answer
-            String answer = person.generateAnswers();
-            
-            //Obtains the player answer through a different scanner input than the one used to change rooms
-            String playerAnswer = scanner.nextLine(); 
-            
-            //Checks if the answer is correct, case insensitive
-            if(answer.toLowerCase().equals(playerAnswer.toLowerCase())){
-                    System.out.println("That's right! well done");
-                    person.pointsFromAnswers(100);
-            }
-            else
-                    System.out.println("No, that's not right");
+            /*
+            Person randomly pops up here, asking questions, which gives extra points
+            questionsAked < getArrayLength, so questions is only asked while there is more in the array
+            Math.random (1-3) is used so there is a 1/3 chance of this happening
+            changeOfRooms > 1 is written so it does not happen immediatly
+            Generate the question, get the players answer, and generate string with the "real answer"
+            Check if the answer is correct, and give points to player if so
+            */
+            if(questionsAsked < person.getArrayLength()){
+                if((int)(Math.random() * 3 + 1) == 2){
+                    if(changeOfRooms > 1){
+                    
+                        String question = person.generateQuestions();
+                        System.out.println("Questions: " + question + "\n Your answer: ");
+                        String playerAnswer = scanner.nextLine().toLowerCase(); 
+                        String realAnswer = person.answersAndQuestions.get(question).toLowerCase();
+                        questionsAsked++; 
+                        if(playerAnswer.equals(realAnswer)){
+                            System.out.println("That's right! well done");
+                            person.pointsFromAnswers(100);
+                        }
+                        else{
+                            System.out.println("No, that's not right");
+                        }
+
             //Prints the room discription again after the answer, so its easier for the user to see
             System.out.println(currentRoom.getLongDescription());
-            } 
-            }
             
+            }
+            }
+        }
         }
     }
 
