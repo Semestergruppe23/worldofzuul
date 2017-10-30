@@ -15,6 +15,7 @@ public enum CommandWord // A class of the type enum.
      * 
      * @param commandString 
      */
+    
     CommandWord(String commandString) 
     {
         this.commandString = commandString;

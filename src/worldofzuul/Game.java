@@ -9,7 +9,8 @@ public class Game {
     private Parser parser;
     private Room currentRoom;
     Scanner input = new Scanner(System.in);
-    Person person = new Person(); 
+    Person person = new Person();
+    EndOfGame pointsAndEnd = new EndOfGame();
     int changeOfRooms = 0; //made so that random questions dont pop up when first beginning the game
     Scanner scanner = new Scanner(System.in); //So that the answers dont interfer with the commands
     long startTime = System.currentTimeMillis(); 
@@ -95,10 +96,17 @@ public class Game {
         System.out.println("Dear " + newplayer.getName() + "!");
         printWelcome();
 
+        
         boolean finished = false;
         while (!finished) {
+            
             Command command = parser.getCommand();
             finished = processCommand(command);
+            if(currentRoom.getShortDescription().equals("Congrats, you win")){
+                pointsAndEnd.pointsFromTime(startTime);
+                pointsAndEnd.returnPlayerPoints(); 
+                finished = true; 
+            }
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -171,8 +179,9 @@ public class Game {
             changeOfRooms > 1 is written so it does not happen immediatly
             Generate the question, get the players answer, and generate string with the "real answer"
             Check if the answer is correct, and give points to player if so
+            if the room is the "Exit", imediatly print out score and end the game
             */
-           
+            
                 if((int)(Math.random() * 3 + 1) == 2 && changeOfRooms > 1 && questionsAsked < person.getArrayLength()){
                     String question = person.generateQuestions();
                     System.out.println("Questions: " + question + "\n Your answer: ");
@@ -181,7 +190,7 @@ public class Game {
                     questionsAsked++; 
                     if(playerAnswer.equals(realAnswer)){
                         System.out.println("That's right! well done");
-                        person.pointsFromAnswers(100);
+                        pointsAndEnd.pointsFromAnswers(100);
                     }
                     else{
                         System.out.println("No, that's not right");
@@ -198,8 +207,8 @@ public class Game {
             System.out.println("Quit what?");
             return false;
         } else {
-            person.pointsFromTime(startTime);
-            person.returnPlayerPoints(); 
+            pointsAndEnd.pointsFromTime(startTime);
+            pointsAndEnd.returnPlayerPoints(); 
             return true;
         }
     }

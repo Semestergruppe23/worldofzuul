@@ -23,18 +23,28 @@ public class Person {
     
     String[] questions = {"NotUsed", question1, question2, question3}; 
     
-    
+    /**
+     * returns the Array containing the questions length
+     * @return the length of the array containing the questions
+     */
     public int getArrayLength(){
         return questions.length; 
     }
     
+    /**
+     * Fills the hashMap with the questions and answers
+     */
     public void putQuestionsAndAnswers(){
         answersAndQuestions.put(question1, answer1);
         answersAndQuestions.put(question2, answer2); 
         answersAndQuestions.put(question3, answer3);
     }
     
-    
+    /**
+     * If the number of questios asked is less than the length of the array, 
+     * return a questions at array(how many questions asked)
+     * @return returns the String at the specified index of the array
+     */
     public String generateQuestions(){
         numberInArray++; 
         if(numberInArray < questions.length){
@@ -43,21 +53,4 @@ public class Person {
         } else
             return "something went wrong";
         }
-
-    
-    public void pointsFromAnswers(int number){
-        //Increases the number of points after each question answered correctly
-        this.points += number;
-    }
-    public void pointsFromTime(long time){
-        this.endTime = System.currentTimeMillis();
-        this.timeSpentInSeconds = (endTime - time)/1000;
-        this.pointsFromTime = 300 - timeSpentInSeconds;
-    }
-    public void returnPlayerPoints(){
-        System.out.println("Total time spent playing: " + this.timeSpentInSeconds);
-        System.out.println("Points from time used: " + this.pointsFromTime);
-        System.out.println("Total points from correct answers: " + this.points);
-        System.out.println("Total amount of points: " + (pointsFromTime + points));
-    }
 }
