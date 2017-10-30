@@ -2,6 +2,7 @@
 package worldofzuul.items;
 // @author niemeijeren
 import java.util.*;
+import worldofzuul.*;
  
 public class Item {
     
@@ -29,9 +30,14 @@ public class Item {
         this.objectContent.put(item, volume);
     }
     
+    public String getName() {
+        return this.name;
+    }
+    
     public String toString() {
         return name;
     }
+    
     
 }
 

@@ -14,12 +14,13 @@ public class Game {
     Scanner scanner = new Scanner(System.in); //So that the answers dont interfer with the commands
     long startTime = System.currentTimeMillis(); 
     int questionsAsked = 1;//So that questions are only answered as long as there is more in the array
+    private Player newplayer = new Player();
+    
     
     public Game() {
         createRooms();
         parser = new Parser();
         person.putQuestionsAndAnswers();
-        
     }
 
     private void createRooms() {
@@ -70,7 +71,7 @@ public class Game {
         Item flashlight = new Item("flash light", 10);
         Item mainKey = new Item("Main Key", 10);
         Item silverKey = new Item("Silver Key", 10);
-        Item redLocker = new Item("Red Locker", 1000);
+        Item redLocker = new Item("RedLocker", 1000);
             redLocker.setObjectContent();
         Item blueLocker = new Item("Blue Locker", 1000);
             blueLocker.setObjectContent();
@@ -91,7 +92,7 @@ public class Game {
     public void play() {
         //Creating player at start of game:
         System.out.println("Name your Character: ");
-        Player newplayer = new Player(input.next());
+        newplayer.setName(input.nextLine());
         System.out.println("Dear " + newplayer.getName() + "!");
         printWelcome();
 
@@ -128,9 +129,10 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
-            System.out.println("Placeholder for grab command.");
+             newplayer.grab(currentRoom.getItem(command.getSecondWord()));
+             currentRoom.removeFromRoom(currentRoom.getItem(command.getSecondWord()));
         } else if (commandWord == CommandWord.USE) {
-            System.out.println("Placeholder for interact command.");
+            System.out.println("using");
         } else if (commandWord == CommandWord.DROP) {
             System.out.println("Placeholder for drop command.");
         } else if (commandWord == CommandWord.INSPECT) {
@@ -202,5 +204,5 @@ public class Game {
             person.returnPlayerPoints(); 
             return true;
         }
-    }
+    } 
 }

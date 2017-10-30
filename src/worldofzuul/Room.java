@@ -89,4 +89,21 @@ public class Room {
         System.out.println("Thats it!");
 
     }
-}
+    
+    public Item getItem(String string) {
+        for ( Item items : insideRoom.keySet()) {
+            if (items.getName().equals(string)){
+                System.out.println(items);
+                return items;
+            } 
+            }
+              return null;  
+        }
+    
+    
+    public void removeFromRoom(Item item) {
+        insideRoom.remove(item);
+    }
+    }
+
+
