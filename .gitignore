@@ -12,3 +12,4 @@ build/classes/worldofzuul/Game.class
 build/classes/worldofzuul/Room.class
 build/classes/worldofzuul/Game.class
 /dist/
+*.properties
