@@ -10,7 +10,7 @@ public class Room {
 
     private String description;
     private HashMap<String, Room> exits; //Stores exits of this room
-    private Map< Item, Integer> insideRoom = new HashMap<>();
+    private ArrayList<Item> insideRoom = new ArrayList<>();
 
     /**
      * Constructor
@@ -74,8 +74,8 @@ public class Room {
      * @param thing
      * @param volume 
      */
-    public void putInsideRoom(Item thing, int volume) {
-        this.insideRoom.put(thing, volume);
+    public void putInsideRoom(Item thing) {
+        this.insideRoom.add(thing);
     }
 
     /**
@@ -83,26 +83,35 @@ public class Room {
      */
     public void getInsideRoom() {
         System.out.println("You look around, and find: ");
-        for (Item items : insideRoom.keySet()) { 
-            System.out.println(items.toString());
+        for (Item items : insideRoom) { 
+            System.out.println( "" + (insideRoom.indexOf(items)+1)+ ". " + items.toString());
         }
         System.out.println("Thats it!");
 
     }
     
-    public Item getItem(String string) {
-        for ( Item items : insideRoom.keySet()) {
-            if (items.getName().equals(string)){
-                System.out.println(items);
-                return items;
-            } 
+
+    public Item pickItemFromRoom(int index) {
+        for(Item items : insideRoom) {
+            if (items.equals(insideRoom.get(index))) {
+                removeFromRoom(items);
+                return items;         
             }
-              return null;  
+           
         }
+        return null;
+    }
     
     
+
     public void removeFromRoom(Item item) {
-        insideRoom.remove(item);
+        Iterator<Item> it = insideRoom.iterator();
+        
+        if (it.hasNext()) {
+            if (it.next().equals(item)) {
+                it.remove();
+            }
+        }
     }
     }
 

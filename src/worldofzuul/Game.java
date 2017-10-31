@@ -83,10 +83,10 @@ public class Game {
         Item randomPerson = new Item("Random Person", 0);
 
         //insert objects in rooms (Object , volume of object)
-        HallWay_black.putInsideRoom(blackLocker, 1000);
-        HallWay_green.putInsideRoom(greenLocker, 1000);
-        HallWay_blue.putInsideRoom(blueLocker, 1000);
-        HallWay_red.putInsideRoom(redLocker, 1000);
+        HallWay_black.putInsideRoom(blackLocker);
+        HallWay_green.putInsideRoom(greenLocker);
+        HallWay_blue.putInsideRoom(blueLocker);
+        HallWay_red.putInsideRoom(redLocker);
         
     }
 
@@ -137,16 +137,15 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
-             newplayer.grab(currentRoom.getItem(command.getSecondWord()));
-             currentRoom.removeFromRoom(currentRoom.getItem(command.getSecondWord()));
+          newplayer.grab(currentRoom.pickItemFromRoom(Integer.parseInt(command.getSecondWord())-1)); 
         } else if (commandWord == CommandWord.USE) {
             System.out.println("using");
         } else if (commandWord == CommandWord.DROP) {
-            System.out.println("Placeholder for drop command.");
+           currentRoom.putInsideRoom(newplayer.drop(Integer.parseInt(command.getSecondWord())-1));
         } else if (commandWord == CommandWord.INSPECT) {
             currentRoom.getInsideRoom();    
         } else if (commandWord == CommandWord.INVENTORY) {
-            System.out.println("Placeholder for inventory command.");
+            newplayer.showInventory();
         }
         
         return wantToQuit;

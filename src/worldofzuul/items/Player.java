@@ -36,11 +36,34 @@ public void setName(String string) {
 }
 
 public void grab(Item item) {
-    System.out.println(item);
-    this.inventory.add(item);
-    
+    System.out.println("Now you have: " + item.toString());
+    this.inventory.add(item); 
     this.inventoryUsed++;
-   
 }
+
+public Item drop(int index) {
+    for (Item item : this.inventory) {
+        if (item.equals(this.inventory.get(index))) {
+            this.inventory.remove(item);
+            System.out.println("you have removed: " + item.toString());
+            return item;
+        }
+    }
+    
+    this.inventoryUsed--;
+    
+    return null;
+}
+
+public List getPlayerArraylist () {
+    return this.inventory;
+}
+
+public void showInventory() {
+    for (Item items : inventory) {
+        System.out.println(inventory.indexOf(items)+1 + ". " + items.toString());
+    }
+}
+
 
 }

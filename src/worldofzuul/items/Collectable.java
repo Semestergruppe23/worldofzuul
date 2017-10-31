@@ -7,6 +7,6 @@ public class Collectable {
     
     public interface CollectItem{
         
-        public abstract String canPickUp();
+        public String canPickUp();
     }
 }
