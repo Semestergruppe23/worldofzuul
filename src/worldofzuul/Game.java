@@ -137,11 +137,17 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
+            if (command.getSecondWord().matches("\\d+")) { // Checks if secondWord contains digits only. \d means a digit and + means one or more times.
           newplayer.grab(currentRoom.pickItemFromRoom(Integer.parseInt(command.getSecondWord())-1)); 
+            }
+            System.out.println("Please enter a digit.");
         } else if (commandWord == CommandWord.USE) {
             System.out.println("using");
         } else if (commandWord == CommandWord.DROP) {
+            if (command.getSecondWord().matches("\\d+")) { // Checks if secondWord contains digits only. \d means a digit and + means one or more times.
            currentRoom.putInsideRoom(newplayer.drop(Integer.parseInt(command.getSecondWord())-1));
+            }
+            System.out.println("Please enter a digit.");
         } else if (commandWord == CommandWord.INSPECT) {
             currentRoom.getInsideRoom();    
         } else if (commandWord == CommandWord.INVENTORY) {
