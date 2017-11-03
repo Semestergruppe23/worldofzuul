@@ -20,9 +20,6 @@ public class Item {
     public void setInventoryIncrease(int inventoryIncrease){
         this.inventoryIncrease = inventoryIncrease;
     }
-    public void setObjectContent(){
-        this.objectContent = objectContent;
-    }
     public int getInventoryIncrease(){
         return this.inventoryIncrease;
     }
