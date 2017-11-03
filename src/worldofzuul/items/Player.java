@@ -51,10 +51,9 @@ public Item drop(int index) {
             System.out.println("you have removed: " + item.toString());
             return item;
         }
+        this.inventoryUsed = inventoryUsed - item.getVolume();
     }
-    
-    this.inventoryUsed--;
-    
+        
     return null;
 }
 
