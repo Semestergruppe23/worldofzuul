@@ -66,21 +66,16 @@ public class Game {
         currentRoom = startRoom;
         
         //Create objects and put them in rooms:
-        Item pants = new Item("pants",0);
-            pants.setInventoryIncrease(40);
-        Item batteries = new Item("batteries", 10);
-        Item flashlight = new Item("flash light", 10);
-        Item mainKey = new Item("Main Key", 10);
-        Item silverKey = new Item("Silver Key", 10);
-        Item redLocker = new Item("RedLocker", 1000);
-            redLocker.setObjectContent();
-        Item blueLocker = new Item("Blue Locker", 1000);
-            blueLocker.setObjectContent();
-        Item greenLocker = new Item("Green Locker", 1000);
-            greenLocker.setObjectContent();
-        Item blackLocker = new Item("Black Locker", 1000);
-            blackLocker.setObjectContent();
-        Item randomPerson = new Item("Random Person", 0);
+        Pants pants = new Pants("pants",0);
+        CarryableItem batteries = new CarryableItem("batteries", 10);
+        CarryableItem flashlight = new CarryableItem("flash light", 10);
+        Key mainKey = new Key("Main Key", 10);
+        Key silverKey = new Key("Silver Key", 10);
+        NonCarryableItem redLocker = new NonCarryableItem("RedLocker", 1000);
+        NonCarryableItem blueLocker = new NonCarryableItem("Blue Locker", 1000);
+        NonCarryableItem greenLocker = new NonCarryableItem("Green Locker", 1000);
+        NonCarryableItem blackLocker = new NonCarryableItem("Black Locker", 1000);
+        NonCarryableItem randomPerson = new NonCarryableItem("Random Person", 0);
 
         //insert objects in rooms (Object , volume of object)
         HallWay_black.putInsideRoom(blackLocker);
