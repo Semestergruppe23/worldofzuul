@@ -12,7 +12,7 @@ public class Player {
     String name;
     int inventoryMAX = 20;
     int inventoryUsed = 0;
-    private ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<ItemInterface> inventory = new ArrayList<>();
     
     
     public Player (String name) {
@@ -35,17 +35,14 @@ public void setName(String string) {
     this.name = string;
 }
 
-public void grab(Item item) {
+public void grab(ItemInterface item) {
     System.out.println("Now you have: " + item.toString());
     this.inventory.add(item); 
-    if (item.getName() == "pants"){
-        this.inventoryMAX = inventoryMAX + item.getInventoryIncrease();
-    }
     this.inventoryUsed = inventoryUsed + item.getVolume();
 }
 
-public Item drop(int index) {
-    for (Item item : this.inventory) {
+public ItemInterface drop(int index) {
+    for (ItemInterface item : this.inventory) {
         if (item.equals(this.inventory.get(index))) {
             this.inventory.remove(item);
             System.out.println("you have removed: " + item.toString());
@@ -62,7 +59,7 @@ public List getPlayerArraylist () {
 }
 
 public void showInventory() {
-    for (Item items : inventory) {
+    for (ItemInterface items : inventory) {
         System.out.println(inventory.indexOf(items)+1 + ". " + items.toString());
     }
 }
