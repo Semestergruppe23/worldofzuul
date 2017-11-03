@@ -38,7 +38,10 @@ public void setName(String string) {
 public void grab(Item item) {
     System.out.println("Now you have: " + item.toString());
     this.inventory.add(item); 
-    this.inventoryUsed++;
+    if (item.getName() == "pants"){
+        this.inventoryMAX = inventoryMAX + item.getInventoryIncrease();
+    }
+    this.inventoryUsed = inventoryUsed + item.getVolume();
 }
 
 public Item drop(int index) {
