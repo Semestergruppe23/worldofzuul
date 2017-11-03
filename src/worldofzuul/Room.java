@@ -10,7 +10,7 @@ public class Room {
 
     private String description;
     private HashMap<String, Room> exits; //Stores exits of this room
-    private ArrayList<Item> insideRoom = new ArrayList<>();
+    private ArrayList<ItemInterface> insideRoom = new ArrayList<>();
 
     /**
      * Constructor
@@ -74,7 +74,7 @@ public class Room {
      * @param thing
      * @param volume 
      */
-    public void putInsideRoom(Item thing) {
+    public void putInsideRoom(ItemInterface thing) {
         this.insideRoom.add(thing);
     }
 
@@ -83,7 +83,7 @@ public class Room {
      */
     public void getInsideRoom() {
         System.out.println("You look around, and find: ");
-        for (Item items : insideRoom) { 
+        for (ItemInterface items : insideRoom) { 
             System.out.println( "" + (insideRoom.indexOf(items)+1)+ ". " + items.toString());
         }
         System.out.println("Thats it!");
@@ -91,8 +91,8 @@ public class Room {
     }
     
 
-    public Item pickItemFromRoom(int index) {
-        for(Item items : insideRoom) {
+    public ItemInterface pickItemFromRoom(int index) {
+        for(ItemInterface items : insideRoom) {
             if (items.equals(insideRoom.get(index))) {
                 removeFromRoom(items);
                 return items;         
@@ -104,8 +104,8 @@ public class Room {
     
     
 
-    public void removeFromRoom(Item item) {
-        Iterator<Item> it = insideRoom.iterator();
+    public void removeFromRoom(ItemInterface item) {
+        Iterator<ItemInterface> it = insideRoom.iterator();
         
         if (it.hasNext()) {
             if (it.next().equals(item)) {
