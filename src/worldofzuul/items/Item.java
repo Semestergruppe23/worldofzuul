@@ -9,7 +9,7 @@ public class Item {
     private String name;
     private int volume;
     private Map < Item, Integer > objectContent = new HashMap<>();
-    private int inventoryIncrease = 40;
+    private int inventoryIncrease;
     
     
     
@@ -17,7 +17,7 @@ public class Item {
         this.name = name;
         this.volume = volume;
     }
-    public void setInventoryIncrease(){
+    public void setInventoryIncrease(int inventoryIncrease){
         this.inventoryIncrease = inventoryIncrease;
     }
     public void setObjectContent(){
@@ -37,7 +37,9 @@ public class Item {
     public String toString() {
         return name;
     }
-    
+    public int getVolume() {
+        return this.volume;
+    }
     
 }
 
