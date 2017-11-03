@@ -67,7 +67,7 @@ public class Game {
         
         //Create objects and put them in rooms:
         Item pants = new Item("pants",0);
-            pants.setInventoryIncrease();
+            pants.setInventoryIncrease(40);
         Item batteries = new Item("batteries", 10);
         Item flashlight = new Item("flash light", 10);
         Item mainKey = new Item("Main Key", 10);
