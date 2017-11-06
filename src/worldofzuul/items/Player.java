@@ -12,7 +12,7 @@ public class Player {
     String name;
     int inventoryMAX = 20;
     int inventoryUsed = 0;
-    private ArrayList<ItemInterface> inventory = new ArrayList<>();
+    private ArrayList<CarryableItem> inventory = new ArrayList<>();
     
     
     public Player (String name) {
@@ -35,7 +35,7 @@ public void setName(String string) {
     this.name = string;
 }
 
-public void grab(ItemInterface item) {
+public void grab(CarryableItem item) {
     System.out.println("Now you have: " + item.toString());
     this.inventory.add(item); 
     this.inventoryUsed = inventoryUsed + item.getVolume();
