@@ -8,10 +8,10 @@ public class NPC_person {
     private String story;
     private boolean giveItem = false;
     private String itemWanted;
-    private int bonustime;
+    private int bonustime = 120;
     
     public NPC_person(String name) {  
-    
+        
     }
     
     public void setStory(String story){
