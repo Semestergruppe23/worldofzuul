@@ -1,6 +1,7 @@
 
-package worldofzuul.items;
+package worldofzuul.objects;
 // @author niemeijeren
+
 
 public class Pants extends CarryableItem {
 private int inventoryIncrease = 40;

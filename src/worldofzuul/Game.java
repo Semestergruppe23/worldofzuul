@@ -1,7 +1,10 @@
 package worldofzuul;
-import worldofzuul.items.EndOfGame;
+import worldofzuul.objects.Person;
+import worldofzuul.objects.CarryableItem;
+import worldofzuul.objects.NonCarryableItem;
+import worldofzuul.objects.Key;
+import worldofzuul.objects.Pants;
 import java.util.*;
-import worldofzuul.items.*;
 /**
  * @author Michael Kolling and David J. Barnes
  * @version 2006.03.30

@@ -1,7 +1,9 @@
 
-package worldofzuul.items;
+package worldofzuul;
 
 //@author niemeijeren
+import worldofzuul.objects.ItemInterface;
+import worldofzuul.objects.CarryableItem;
 import java.util.*;
 import worldofzuul.*;
 

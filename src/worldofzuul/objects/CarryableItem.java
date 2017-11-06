@@ -1,6 +1,7 @@
 
-package worldofzuul.items;
+package worldofzuul.objects;
 // @author niemeijeren
+
 public class CarryableItem implements ItemInterface {
     private String name;
     private int volume;
