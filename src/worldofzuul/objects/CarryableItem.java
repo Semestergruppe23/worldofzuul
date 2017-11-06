@@ -17,7 +17,6 @@ public class CarryableItem implements ItemInterface {
     public String getName() {
         return this.name;
     }
-    @Override
     public int getVolume() {
         return this.volume;
     }
