@@ -57,6 +57,7 @@ public class EndOfGame {
         else
         {
             System.out.println("Time ran out!");
+            this.returnPlayerPoints();
             return true;
         }
     }
