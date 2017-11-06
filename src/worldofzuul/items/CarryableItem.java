@@ -5,6 +5,7 @@ public class CarryableItem implements ItemInterface {
     private String name;
     private int volume;
     private boolean canPickUp = true;
+    private String itemText;
     
     public CarryableItem(String name, int volume){
         this.name = name;
@@ -23,10 +24,16 @@ public class CarryableItem implements ItemInterface {
     public boolean canPickUp() {
         return this.canPickUp;
     }
+    public String getItemText(){
+        return this.itemText;
+    }
     public void setVolume(int volume){
         this.volume = volume;
     }
     public void setName(String name){
         this.name = name;
+    }
+    public void setItemText(String itemText){
+        this.itemText = itemText;
     }
 }
