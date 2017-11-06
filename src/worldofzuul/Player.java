@@ -43,8 +43,8 @@ public void grab(CarryableItem item) {
     this.inventoryUsed = inventoryUsed + item.getVolume();
 }
 
-public ItemInterface drop(int index) {
-    for (ItemInterface item : this.inventory) {
+public CarryableItem drop(int index) {
+    for (CarryableItem item : this.inventory) {
         if (item.equals(this.inventory.get(index))) {
             this.inventory.remove(item);
             System.out.println("you have removed: " + item.toString());
