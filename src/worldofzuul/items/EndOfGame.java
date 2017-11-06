@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package worldofzuul;
+package worldofzuul.items;
 
 /**
  *
@@ -14,6 +14,7 @@ public class EndOfGame {
     int points = 0;
     long endTime, timeSpentInSeconds, pointsFromTime;
     int exit = 1;
+    long gameTime = 600; 
     
     public EndOfGame(){ 
     }
@@ -37,6 +38,30 @@ public class EndOfGame {
     }
     
     /**
+     * Prints out the remaining time everytime it is checked, untill the time runs out
+     * Prints that the time is up, if the occured time is less than the specified game time
+     * @param time, is System.currentTimeMillis(); started at the beginning of the game
+     * @return false if there is still time left, true, if time has run out
+     */
+    public boolean checkTime(long time){
+        long timeWhenChecked = System.currentTimeMillis();
+        
+        long timeOccuredInSeconds = (timeWhenChecked - time)/1000;
+        
+        if(timeOccuredInSeconds < gameTime)
+        {
+            System.out.println("Time left: " + 
+                    (gameTime - timeOccuredInSeconds) + "...");
+            return false;
+        }
+        else
+        {
+            System.out.println("Time ran out!");
+            return true;
+        }
+    }
+    
+    /**
      * Prints the points earned by the player
      * Shows; how long the player spent in seconds, how many points that earned,
      * the player, how many points from correct answers, and the 2 combined as
@@ -48,4 +73,15 @@ public class EndOfGame {
         System.out.println("Total points from correct answers: " + this.points);
         System.out.println("Total amount of points: " + (pointsFromTime + points));
     }
+    
+    /**
+     * prints out how much time is lost, and detracts the specified time, from the alloted game time
+     * @param time is the amount of time lost from the time alloted at the beginning
+     */
+    public void retractTime(long time){
+        this.gameTime -= time; 
+        System.out.println("You are " + time + " seconds closer to alchohol poisoning!");
+    }
+    
+    
 }

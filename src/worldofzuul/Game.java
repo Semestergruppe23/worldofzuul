@@ -1,4 +1,5 @@
 package worldofzuul;
+import worldofzuul.items.EndOfGame;
 import java.util.*;
 import worldofzuul.items.*;
 /**
@@ -91,6 +92,7 @@ public class Game {
         newplayer.setName(input.nextLine());
         System.out.println("Dear " + newplayer.getName() + "!");
         printWelcome();
+        
 
         
         boolean finished = false;
@@ -98,6 +100,11 @@ public class Game {
             
             Command command = parser.getCommand();
             finished = processCommand(command);
+            
+        //Checks if the time has run out, print the remaing time if not, else the game is ended
+            finished = pointsAndEnd.checkTime(startTime);
+            
+        //If the player reaches the exit, finished = true, and the points is printet with the returnPlayerPoints() method
             if(currentRoom.getShortDescription().equals("Congrats, you win")){
                 pointsAndEnd.pointsFromTime(startTime);
                 pointsAndEnd.returnPlayerPoints(); 
@@ -174,33 +181,8 @@ public class Game {
             changeOfRooms++; 
             System.out.println(currentRoom.getLongDescription());
             
-            /*
-            Person randomly pops up here, asking questions, which gives extra points
-            questionsAked < getArrayLength, so questions is only asked while there is more in the array
-            Math.random (1-3) is used so there is a 1/3 chance of this happening
-            changeOfRooms > 1 is written so it does not happen immediatly
-            Generate the question, get the players answer, and generate string with the "real answer"
-            Check if the answer is correct, and give points to player if so
-            if the room is the "Exit", imediatly print out score and end the game
-            */
-            
-                if((int)(Math.random() * 3 + 1) == 2 && changeOfRooms > 1 && questionsAsked < person.getArrayLength()){
-                    String question = person.generateQuestions();
-                    System.out.println("Questions: " + question + "\n Your answer: ");
-                    String playerAnswer = scanner.nextLine().toLowerCase(); 
-                    String realAnswer = person.answersAndQuestions.get(question).toLowerCase();
-                    questionsAsked++; 
-                    if(playerAnswer.equals(realAnswer)){
-                        System.out.println("That's right! well done");
-                        pointsAndEnd.pointsFromAnswers(100);
-                    }
-                    else{
-                        System.out.println("No, that's not right");
-                    }
-
-            //Prints the room discription again after the answer, so its easier for the user to see
-            System.out.println(currentRoom.getLongDescription());
-            }
+            //1/3 chance of the hallucination to pop up and ask a question everytime the player switches rooms
+            person.randomPopUp(changeOfRooms, person, scanner, pointsAndEnd, currentRoom, newplayer);
         }  
     }
 
