@@ -1,5 +1,5 @@
 
-package worldofzuul.items;
+package worldofzuul.objects;
 // @author niemeijeren
 
 public interface ItemInterface {

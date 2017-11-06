@@ -1,7 +1,7 @@
 package worldofzuul;
 
+import worldofzuul.objects.ItemInterface;
 import java.util.*;
-import worldofzuul.items.*;
 
 /*
 Each "Room" represents a location in the game and is connected to other rooms via exits. 

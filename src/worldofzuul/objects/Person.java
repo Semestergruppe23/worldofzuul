@@ -1,8 +1,10 @@
 
-package worldofzuul.items;
+package worldofzuul.objects;
 import java.util.*;
 import java.util.HashMap; 
 import worldofzuul.Room; 
+import worldofzuul.EndOfGame;
+import worldofzuul.Player;
 
 // @author oskar
 
