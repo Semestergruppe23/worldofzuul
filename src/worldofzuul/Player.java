@@ -22,10 +22,6 @@ public class Player {
         
     }
     
-    public Player() {
-        
-    }
-    
 public void setCapacity(int inventoryMAX){
     this.inventoryMAX = inventoryMAX;
 }
