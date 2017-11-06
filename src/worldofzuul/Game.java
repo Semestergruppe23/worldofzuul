@@ -140,7 +140,7 @@ public class Game {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.GRAB) {
             if (command.getSecondWord().matches("\\d+")) { // Checks if secondWord contains digits only. \d means a digit and + means one or more times.
-          newplayer.grab(currentRoom.pickItemFromRoom(Integer.parseInt(command.getSecondWord())-1)); 
+          newplayer.grab((CarryableItem) currentRoom.pickItemFromRoom(Integer.parseInt(command.getSecondWord())-1)); 
             }
             System.out.println("Please enter a digit.");
         } else if (commandWord == CommandWord.USE) {
