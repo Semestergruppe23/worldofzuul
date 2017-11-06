@@ -5,6 +5,5 @@ package worldofzuul.objects;
 public interface ItemInterface {
     
     public String getName();
-    public int getVolume();
     public boolean canPickUp();
 }
