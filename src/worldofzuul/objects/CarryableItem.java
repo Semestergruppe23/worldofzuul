@@ -36,4 +36,8 @@ public class CarryableItem implements ItemInterface {
     public void setItemText(String itemText){
         this.itemText = itemText;
     }
+    
+    public String toString() {
+        return this.name;
+    }
 }

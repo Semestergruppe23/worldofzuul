@@ -29,4 +29,8 @@ public class NonCarryableItem implements ItemInterface {
     public void insertObject(ItemInterface item, Integer volume){
         this.objectContent.put(item, volume);
     }
+    
+    public String toString() {
+        return this.name;
+    }
 }
