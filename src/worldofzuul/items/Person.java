@@ -227,6 +227,7 @@ public class Person {
      * @param pointsAndEnd used to take away time for wrong answers, and give points for right ones
      * @param currentRoom used to prints the description of the room the player is in, after the NPC goes away
      * @param player used to obtain the players name for the specialQuestions Method, in the person class 
+     * TEST
      */
     public void randomPopUp(int changeOfRooms, Person person, Scanner scanner, EndOfGame pointsAndEnd, Room currentRoom, Player player){
         if(this.specialQuestions(player, currentRoom, changeOfRooms, scanner, pointsAndEnd) == true){
