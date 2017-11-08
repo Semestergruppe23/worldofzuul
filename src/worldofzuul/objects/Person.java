@@ -126,7 +126,7 @@ public class Person {
      * @param pointsAndEnd used to award points for correct answers, and detracts time for incorrect ones
      * @return true if the 1 of the methods if statements are true, false if not
      */
-    public boolean specialQuestions(Player player, Room currentRoom, int changeOfRooms, Scanner scanner, EndOfGame pointsAndEnd){
+    public void specialQuestions(Player player, Room currentRoom, int changeOfRooms, Scanner scanner, EndOfGame pointsAndEnd){
         
         
         String sQuestion1 = "You look very hungover!;\n" + "Question: Do you even remember your own name?"; 
@@ -148,12 +148,10 @@ public class Person {
             if(playerAnswer.equals(sAnswer1.toLowerCase())){
                 this.correctAnswer(pointsAndEnd, currentRoom);
                 introAsked = true;
-                return true;
             }
             else{
                 this.wrongAnswer(pointsAndEnd, currentRoom);
                 introAsked = true;
-                return true;
             }
         }
         else if(currentRoom.getShortDescription().equals(toiletDescription) && this.toiletAsked == false){
@@ -162,12 +160,10 @@ public class Person {
             if(playerAnswer.equals(sAnswer2.toLowerCase())){
                 this.correctAnswer(pointsAndEnd, currentRoom);
                 this.toiletAsked = true;
-                return true;
             }
             else{
                 this.wrongAnswer(pointsAndEnd, currentRoom);
                 this.toiletAsked = true;
-                return true;
             }
         }
         else if(currentRoom.getShortDescription().equals(historyRoomDescription) && this.historyAsked == false){
@@ -176,16 +172,13 @@ public class Person {
             if(playerAnswer.equals(sAnswer3.toLowerCase())){
                 this.correctAnswer(pointsAndEnd, currentRoom);
                 this.historyAsked = true;
-                return true;
             }
             else{
                 this.wrongAnswer(pointsAndEnd, currentRoom);
                 this.historyAsked = true;
-                return true;
             }
         }
-        
-        return false;
+ 
     }
     
     /**
@@ -232,7 +225,8 @@ public class Person {
      * TEST
      */
     public void randomPopUp(int changeOfRooms, Person person, Scanner scanner, EndOfGame pointsAndEnd, Room currentRoom, Player player){
-        if(this.specialQuestions(player, currentRoom, changeOfRooms, scanner, pointsAndEnd) == true){
+        //if(this.specialQuestions(player, currentRoom, changeOfRooms, scanner, pointsAndEnd) == true){
+        if(this.checkForSpecialQuestion(changeOfRooms, currentRoom) == true){
             System.out.print("Hallucination>> ");
             this.specialQuestions(player, currentRoom, changeOfRooms, scanner, pointsAndEnd);
             
@@ -253,4 +247,27 @@ public class Person {
                     }
         }
     }
+    
+    /**
+     * Checks if the player is in the toilet, historyRoom, or has just begun the game, and askes special questions
+     * @param changeOfRooms used to check how many times the player has changed rooms
+     * @param currentRoom used to ask questions concerning the room the player is currently in
+     * @return 
+     */
+    public boolean checkForSpecialQuestion(int changeOfRooms, Room currentRoom){
+	String toiletDescription = "in the toilet";
+    String historyRoomDescription = "in the history room";
+	
+	if(changeOfRooms == 1 && this.introAsked == false){
+		return true;
+	}
+	if(currentRoom.getShortDescription().equals(toiletDescription) && this.toiletAsked == false){
+		return true;
+	}
+	if(currentRoom.getShortDescription().equals(historyRoomDescription) && this.historyAsked == false){
+		return true;
+	}
+	else
+		return false;
+}
 }
