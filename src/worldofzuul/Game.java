@@ -13,21 +13,24 @@ public class Game {
     private Parser parser;
     private Room currentRoom;
     Scanner input = new Scanner(System.in);
-    Person person = new Person();
-    EndOfGame pointsAndEnd = new EndOfGame();
+    Person person = new Person(); //The hallucination that pops up and asks questions
+    EndOfGame pointsAndEnd = new EndOfGame(); //Awards the player poits, take away time, and end the game under certain conditions
     int changeOfRooms = 0; //made so that random questions dont pop up when first beginning the game
     Scanner scanner = new Scanner(System.in); //So that the answers dont interfer with the commands
-    long startTime = System.currentTimeMillis(); 
+    long startTime = System.currentTimeMillis(); //Made so the game time is initialized when the player starts the game
     int questionsAsked = 1;//So that questions are only answered as long as there is more in the array
     private Player newplayer = new Player();
+    
     
     
     public Game() {
         createRooms();
         parser = new Parser();
-        person.putQuestionsAndAnswers();
+        person.putQuestionsAndAnswers(); //Fills the hashmap in the Person class with questions and answers
     }
-
+    
+    
+    
     private void createRooms() {
         Room startRoom, MathRoom, HistoryRoom, HallWay_red, HallWay_blue, JanitorRoom, HallWay_green, HallWay_black, toilet, exit; //Declares the rooms of the game
 
@@ -46,7 +49,7 @@ public class Game {
         startRoom.setExit("east", HallWay_red);  //Uses the "sub-method" setExit in the Room class, to set which ways you can leave the rooms
 
         MathRoom.setExit("south", HallWay_red);
-
+     
         HistoryRoom.setExit("south", HallWay_blue);
 
         HallWay_red.setExit("north", MathRoom);

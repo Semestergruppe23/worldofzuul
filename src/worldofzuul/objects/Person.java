@@ -5,6 +5,7 @@ import java.util.HashMap;
 import worldofzuul.Room; 
 import worldofzuul.EndOfGame;
 import worldofzuul.Player;
+import worldofzuul.Game;
 
 // @author oskar
 
@@ -221,8 +222,7 @@ public class Person {
      * @param scanner used to obtain the players answers to questions
      * @param pointsAndEnd used to take away time for wrong answers, and give points for right ones
      * @param currentRoom used to prints the description of the room the player is in, after the NPC goes away
-     * @param player used to obtain the players name for the specialQuestions Method, in the person class 
-     * TEST
+     * @param player used to obtain the players name for the specialQuestions Method, in the person class
      */
     public void randomPopUp(int changeOfRooms, Person person, Scanner scanner, EndOfGame pointsAndEnd, Room currentRoom, Player player){
         //if(this.specialQuestions(player, currentRoom, changeOfRooms, scanner, pointsAndEnd) == true){
@@ -256,8 +256,10 @@ public class Person {
      */
     public boolean checkForSpecialQuestion(int changeOfRooms, Room currentRoom){
 	String toiletDescription = "in the toilet";
-    String historyRoomDescription = "in the history room";
-	
+        String historyRoomDescription = "in the history room";
+        // Få description fra dem: toilet.getShortDescription();
+        
+        
 	if(changeOfRooms == 1 && this.introAsked == false){
 		return true;
 	}
@@ -267,6 +269,7 @@ public class Person {
 	if(currentRoom.getShortDescription().equals(historyRoomDescription) && this.historyAsked == false){
 		return true;
 	}
+        
 	else
 		return false;
 }
