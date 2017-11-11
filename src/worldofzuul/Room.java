@@ -9,6 +9,8 @@ Each "Room" represents a location in the game and is connected to other rooms vi
 public class Room {
 
     private String description;
+    private Boolean locked;
+    private String lockedMessage;
     private HashMap<String, Room> exits; //Stores exits of this room
     private ArrayList<ItemInterface> insideRoom = new ArrayList<>();
 
@@ -17,11 +19,11 @@ public class Room {
      *
      * @param description
      */
-    public Room(String description) {
+    public Room(String description, Boolean locked) {
         this.description = description;
         exits = new HashMap<String, Room>();
         this.insideRoom = insideRoom;
-
+        this.locked = locked;
     }
 
     /* Defines the exit of the particular room
@@ -37,8 +39,26 @@ public class Room {
         return description;
     }
 
+    public Boolean getRoomLocked () {
+        return this.locked;
+        
+    }
+    
+    public void setRoomLocked (Boolean locked) {
+        this.locked = locked;
+    }
+    
+    public void setRoomLockedMessage (String lockedMessage) {
+        this.lockedMessage = lockedMessage;
+    }
+    
+    public void getRoomLockedMessage () {
+        System.out.println(this.lockedMessage);
+    }
+    
+    
     /**
-     * escribes which room you are in and where the exit is. ex. "You are in a
+     * describes which room you are in and where the exit is. ex. "You are in a
      * lecture theatre Exits: west"
      *
      * @return String
