@@ -34,16 +34,16 @@ public class Game {
     private void createRooms() {
         Room startRoom, MathRoom, HistoryRoom, HallWay_red, HallWay_blue, JanitorRoom, HallWay_green, HallWay_black, toilet, exit; //Declares the rooms of the game
 
-        startRoom = new Room("Where the game starts: "); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
-        MathRoom = new Room("in the Math room");
-        HistoryRoom = new Room("in the history room");
-        HallWay_red = new Room("in the red hallway");
-        HallWay_blue = new Room("in the blue hallway");
-        JanitorRoom = new Room("in the janitor room");
-        HallWay_green = new Room("in the green hallway");
-        HallWay_black = new Room("in the black hallway");
-        toilet = new Room("in the toilet");
-        exit = new Room("Congrats, you win");
+        startRoom = new Room("Where the game starts: ", false); // Uses the method Room, which declares instances of the Room class, with string arguments for each room
+        MathRoom = new Room("in the Math room", false);
+        HistoryRoom = new Room("in the history room", false);
+        HallWay_red = new Room("in the red hallway", false);
+        HallWay_blue = new Room("in the blue hallway", false);
+        JanitorRoom = new Room("in the janitor room", true);
+        HallWay_green = new Room("in the green hallway", false);
+        HallWay_black = new Room("in the black hallway", false);
+        toilet = new Room("in the toilet", false);
+        exit = new Room("Congrats, you win", true);
 
         // Exits: 
         startRoom.setExit("east", HallWay_red);  //Uses the "sub-method" setExit in the Room class, to set which ways you can leave the rooms
@@ -69,7 +69,11 @@ public class Game {
         HallWay_black.setExit("east", toilet);
 
         toilet.setExit("west", HallWay_black);
-
+        
+        JanitorRoom.setRoomLockedMessage("The room is dark. you need a flashlight with batteries");
+        exit.setRoomLockedMessage("The room is locked. You need to find a key");
+        MathRoom.setRoomLockedMessage("The room is locked. You need to find a key.");
+        
         currentRoom = startRoom;
         
         //Create objects and put them in rooms:
@@ -180,6 +184,13 @@ public class Game {
         }
         String direction = command.getSecondWord();
         Room nextRoom = currentRoom.getExit(direction);
+        //Checks if the room is locked and displays the locked message if true
+        if(nextRoom.getRoomLocked() == true){
+            nextRoom.getRoomLockedMessage();
+        }
+        else{
+            
+        
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
@@ -190,6 +201,7 @@ public class Game {
             //1/3 chance of the hallucination to pop up and ask a question everytime the player switches rooms
             person.randomPopUp(changeOfRooms, person, scanner, pointsAndEnd, currentRoom, newplayer);
         }  
+        }
     }
 
     private boolean quit(Command command) {
