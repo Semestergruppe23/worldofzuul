@@ -3,39 +3,55 @@ package Data;
 // @author Tim
 
 import Acquaintance.*;
+import java.util.Collection;
 import java.util.TreeMap;
 
 
- 
-public class HighscoreList implements IHighscoreList {
-    private TreeMap <Integer, String> Highscore = new TreeMap<>();
 
-    public HighscoreList(){
-        Highscore.put(2583, "Kasper");
-        Highscore.put(22345, "sjda");
-        Highscore.put(253, "Anja");
-        Highscore.put(8653, "Dominator");
+public class HighscoreList implements IHighscoreList 
+{
+    private String[] Highscore;
+    
+
+    public HighscoreList()
+    {
+
+        Highscore[0] = "2583 , Kasper";
+        Highscore[1] = "22345 , sjda";
+        Highscore[2] = "253 , Anja";
+        Highscore[3] = "8653 , Dominator";
         
     }
     
     @Override
-    public String getHighscoreList(IHighscoreList list) {
-        return this.Highscore.toString();
+    public String[] getHighscoreList(IHighscoreList list) 
+    {
+        return this.Highscore;
     }
 
     @Override
-    public void SetHighscoreList(IHighscoreList list, IPlayer player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addToHighscoreList(int score, String name) 
+    {
+        Highscore[10] = (score + ", " + name);
     }
 
     @Override
-    public boolean checkHighscore(IHighscoreList list, IPlayer player) {
+    public boolean checkHighscore(int score) 
+    {
         boolean newHighscore = false;
-        if (player.getGameScore() <= this.Highscore.firstKey()){
-            newHighscore = false;
-        }else if(player.getGameScore() >= this.Highscore.firstKey()){
-            newHighscore = true;
-        }
+        int highscorePosition = Highscore.length;
+        int lowestScore = Highscore.length -1;
+        
+        if (highscorePosition <= 9)
+        {
+            return true;
+        } else {
+                if (score < lowestScore  ){
+                newHighscore = false;
+            }else if(score > lowestScore){
+                newHighscore = true;
+                }
         return newHighscore;
+        }
     }
 }
