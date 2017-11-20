@@ -1,4 +1,5 @@
 package worldofzuul;
+import Acquaintance.IHighscoreList;
 import worldofzuul.objects.Person;
 import worldofzuul.objects.CarryableItem;
 import worldofzuul.objects.NonCarryableItem;
@@ -20,6 +21,8 @@ public class Game {
     long startTime = System.currentTimeMillis(); //Made so the game time is initialized when the player starts the game
     int questionsAsked = 1;//So that questions are only answered as long as there is more in the array
     private Player newplayer = new Player();
+    IHighscoreList HighscoreList;
+    private ArrayList gameHighscore;
     
     
     
@@ -100,6 +103,17 @@ public class Game {
         //Creating player at start of game:
         System.out.println("Name your Character: ");
         newplayer.setName(input.nextLine());
+        //Create highscorelist from database
+        setGameHighscore(HighscoreList.getHighscoreList(HighscoreList));
+        //Choice to see highscore
+        System.out.println("See highscore list press 1, 0 to continue");
+        switch (input.nextInt()){
+            case 1:
+                for (int i = 0; i < gameHighscore.size()-1; i++)
+                    System.out.println(gameHighscore.get(i));
+            default :
+                break;
+        }
         System.out.println("Dear " + newplayer.getName() + "!");
         printWelcome();
         
@@ -202,8 +216,17 @@ public class Game {
             person.randomPopUp(changeOfRooms, person, scanner, pointsAndEnd, currentRoom, newplayer);
         }  
         }
+        
     }
-
+    //Making the highscorelist from data-layer into its own list
+    public void setGameHighscore(ArrayList list){
+            this.gameHighscore = list;
+        }
+    //Inject method for connecting data-layer and business layer
+    public void injectHighscoreList(IHighscoreList list){
+        this.HighscoreList = list;
+    }
+    
     private boolean quit(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("Quit what?");

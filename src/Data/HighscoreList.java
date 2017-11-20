@@ -3,46 +3,57 @@ package Data;
 // @author Tim
 
 import Acquaintance.*;
-import java.util.Collection;
-import java.util.TreeMap;
+import java.util.ArrayList;
 
 
 
+// Create highscore list implementing interface
 public class HighscoreList implements IHighscoreList 
 {
-    private String[] Highscore;
-    
-
+    private ArrayList<String> Highscore = new ArrayList<>();
+    private int highscoreLength = Highscore.size();
+    private int lowestScore = Highscore.size() -1;
+        
+//Create object
     public HighscoreList()
     {
 
-        Highscore[0] = "2583 , Kasper";
-        Highscore[1] = "22345 , sjda";
-        Highscore[2] = "253 , Anja";
-        Highscore[3] = "8653 , Dominator";
+        Highscore.add("2583 , Kasper");
+        Highscore.add("22345 , sjda");
+        Highscore.add("253 , Anja");
+        Highscore.add("8653 , Dominator");
         
     }
     
+    //Override getter-method
     @Override
-    public String[] getHighscoreList(IHighscoreList list) 
+    public ArrayList getHighscoreList(IHighscoreList list) 
     {
         return this.Highscore;
     }
 
+    //Add highscore, depending on amount of scores on the list
     @Override
     public void addToHighscoreList(int score, String name) 
     {
-        Highscore[10] = (score + ", " + name);
+        
+        if (highscoreLength <=9 ){
+            Highscore.add(score + ", " + name);
+        } else {
+        Highscore.remove(9);
+        Highscore.add(9,(score + ", " + name));
+        }
     }
 
+    //Checking if highscore deserves a spot on list, returning boolean
     @Override
     public boolean checkHighscore(int score) 
     {
+
         boolean newHighscore = false;
-        int highscorePosition = Highscore.length;
-        int lowestScore = Highscore.length -1;
         
-        if (highscorePosition <= 9)
+        
+        if (highscoreLength <= 9)
         {
             return true;
         } else {
