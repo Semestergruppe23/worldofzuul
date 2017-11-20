@@ -5,13 +5,18 @@
  */
 package worldofzuul;
 
+import Acquaintance.IHighscoreList;
+import Data.HighscoreList;
+
 /**
  *
  * @author Hansi
  */
 public class main {
     public static void main(String[] args) {
+        IHighscoreList HighscoreList = new HighscoreList();
         Game game = new Game();
+        game.injectHighscoreList(HighscoreList);
         game.play();
     }
     

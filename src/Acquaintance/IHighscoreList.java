@@ -2,11 +2,14 @@
 package Acquaintance;
 
  // @author Tim
+import java.util.ArrayList;
+
+
 
 public interface IHighscoreList {
     
-    public String getHighscoreList(IHighscoreList list);
-    public void SetHighscoreList(IHighscoreList list, IPlayer player);
-    public boolean checkHighscore(IHighscoreList list, IPlayer player);
+    public ArrayList getHighscoreList(IHighscoreList list);
+    public void addToHighscoreList(int score, String name);
+    public boolean checkHighscore(int score);
     
 }
