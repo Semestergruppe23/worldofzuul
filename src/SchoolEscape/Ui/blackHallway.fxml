@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#playerMovement" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SchoolEscape.Ui.blackHallwayController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="534.0" minHeight="10.0" prefHeight="511.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="257.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <TitledPane fx:id="playerInventory" alignment="CENTER_RIGHT" animated="false" collapsible="false" layoutX="810.0" layoutY="16.0" text="Inventory">
+               <content>
+                  <ListView prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+            <TextArea disable="true" editable="false" layoutX="401.0" layoutY="16.0" prefHeight="227.0" prefWidth="399.0" />
+            <ProgressBar fx:id="timer" layoutY="16.0" prefWidth="200.0" progress="1.0" />
+            <Label layoutY="36.0" text="Room:">
+               <font>
+                  <Font name="Helvetica Bold" size="13.0" />
+               </font></Label>
+            <Button layoutX="314.0" layoutY="63.0" mnemonicParsing="false" text="Answer A" />
+            <Button layoutX="313.0" layoutY="114.0" mnemonicParsing="false" text="Answer B" />
+            <Button layoutX="313.0" layoutY="168.0" mnemonicParsing="false" text="Answer C" />
+            <Button layoutX="20.0" layoutY="217.0" mnemonicParsing="false" text="Main Menu" />
+            <ImageView fx:id="playerIcon" fitHeight="150.0" fitWidth="200.0" layoutX="62.0" layoutY="52.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/Featured-Image20.png" />
+               </image></ImageView>
+            <Button layoutX="118.0" layoutY="217.0" mnemonicParsing="false" text="Help" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="player" fitHeight="72.0" fitWidth="84.0" layoutX="470.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Featured-Image20.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="topDoor" fitHeight="88.0" fitWidth="94.0" layoutX="470.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/WoodCastleDoor2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="topWall" fitHeight="95.0" fitWidth="1031.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="leftWall" fitHeight="511.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bottomWall" fitHeight="70.0" fitWidth="1024.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="rightWall" fitHeight="511.0" fitWidth="84.0" layoutX="940.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="rightDoor" fitHeight="88.0" fitWidth="94.0" layoutX="917.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/WoodCastleDoor2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="leftDoor" fitHeight="88.0" fitWidth="94.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/WoodCastleDoor2.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </children>
+</GridPane>

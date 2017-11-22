@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package worldofzuul;
+package SchoolEscape.business;
 
+import worldofzuul.*;
 import SchoolEscape.Acquaintance.IHighscoreList;
 import SchoolEscape.Data.HighscoreList;
 

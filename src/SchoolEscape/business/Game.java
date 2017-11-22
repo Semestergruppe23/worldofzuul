@@ -1,4 +1,5 @@
-package worldofzuul;
+package SchoolEscape.business;
+import worldofzuul.*;
 import SchoolEscape.Acquaintance.IHighscoreList;
 import worldofzuul.objects.Person;
 import worldofzuul.objects.CarryableItem;
